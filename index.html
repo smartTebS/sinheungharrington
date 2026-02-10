@@ -16,6 +16,10 @@
             --border-radius: 12px;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--bg-color);
@@ -95,7 +99,14 @@
             border: 1px solid #dee2e6;
         }
 
-        /* 템플릿 버튼 스타일 */
+        /* 🔑 템플릿 리스트 레이아웃 (추가된 핵심) */
+        .template-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+
+        /* 템플릿 버튼 스타일 (기존 그대로) */
         .template-btn {
             width: 100%;
             background: #fff;
@@ -103,11 +114,11 @@
             padding: 15px;
             border-radius: var(--border-radius);
             text-align: left;
-            margin-bottom: 12px;
             cursor: pointer;
             transition: all 0.2s;
             font-size: 0.95rem;
             position: relative;
+            min-width: 0;
         }
 
         .template-btn:hover {
@@ -143,7 +154,6 @@
             color: #aaa;
         }
 
-        /* 모바일 대응 가이드 이미지 (Hits 카운터 대체용) */
         .hits {
             margin-top: 20px;
             text-align: center;
@@ -156,7 +166,6 @@
     <header>
         <h1>📨 성남시 민원문자 전송</h1>
         <p>중앙동-성남시 민원 해결을 위한 문자 발송 도구</p>
-        <!--<p>해링턴 스퀘어 신흥역</p>		-->
     </header>
 
     <div class="card">
@@ -167,28 +176,30 @@
 
     <div class="card">
         <div class="card-title"><span>📝</span> 민원 내용 선택</div>
-        
-        <div class="template-btn" onclick="sendSMS('성호시장 4거리는 중고등학생 및 인근아파트 주민들의 보행과 차량통행이 많은 곳입니다. 
-			신호위반 과속 차량으로인해 주민들이 사거리 이용시 놀라는 경우가 생기고 있습니다.
-			광명로 성호시장 방면에서 하늘채 1단지 방향으로 후방 과속 카메라를 설치해주시면 
-			횡단보도 주변 사고 위험도 줄이고 야간의 오토바이 소음도 줄일수 있을것 입니다.
-			성호시장 4거리에 신호위반 과속 방지 후방 카메라 설치 바랍니다.')">
-            <span class="template-tag">템플릿 A</span>
-            성호시장 4거리는 중고등학생 및 인근아파트 주민들의 보행과 차량통행이 많은 곳입니다. 
-			신호위반 과속 차량으로인해 주민들이 사거리 이용시 놀라는 경우가 생기고 있습니다.
-			광명로 성호시장 방면에서 하늘채 1단지 방향으로 후방 과속 카메라를 설치해주시면 
-			횡단보도 주변 사고 위험도 줄이고 야간의 오토바이 소음도 줄일수 있을것 입니다.
-			성호시장 4거리에 신호위반 과속 방지 후방 카메라 설치 바랍니다.
-        </div>
 
-        <div class="template-btn" onclick="sendSMS('공사 현장 소음 및 비산먼지 저감 대책 마련 요청')">
-            <span class="template-tag">템플릿 B</span>
-            공사 현장 소음 및 비산먼지 저감 대책 마련 요청
-        </div>
+        <!-- 🔽 템플릿 리스트 (이 부분만 감쌌음) -->
+        <div class="template-list">
+            <div class="template-btn" onclick="sendSMS('성호시장 4거리는 중고등학생 및 인근아파트 주민들의 보행과 차량통행이 많은 곳입니다. 신호위반 과속 차량으로인해 주민들이 사거리 이용시 놀라는 경우가 생기고 있습니다. 광명로 성호시장 방면에서 하늘채 1단지 방향으로 후방 과속 카메라를 설치해주시면 횡단보도 주변 사고 위험도 줄이고 야간의 오토바이 소음도 줄일수 있을것 입니다.성호시장 4거리에 신호위반 과속 방지 후방 카메라 설치 바랍니다')">
+                <span class="template-tag">템플릿 A</span>
+                성호시장 4거리는 중고등학생 및 인근아파트 주민들의 보행과 차량통행이 많은 곳입니다.
 
-        <div class="template-btn" onclick="sendSMS('기타 생활 불편 사항 개선 및 조속한 답변 요청')">
-            <span class="template-tag">템플릿 C</span>
-            기타 생활 불편 사항 개선 및 조속한 답변 요청
+신호위반 과속 차량으로인해 주민들이 사거리 이용시 놀라는 경우가 생기고 있습니다.
+
+광명로 성호시장 방면에서 하늘채 1단지 방향으로 후방 과속 카메라를 설치해주시면 횡단보도 주변 사고 위험도 줄이고 야간의 오토바이 소음도 줄일수 있을것 입니다.
+
+성호시장 4거리에 신호위반 과속 방지 후방 카메라 설치 바랍니다.
+            </div>
+
+            <div class="template-btn" onclick="sendSMS('공사 현장 소음 및 비산먼지 저감 대책 마련 요청')">
+                <span class="template-tag">템플릿 B</span>
+                공사 현장 소음 및 비산
+            </div>
+
+            <div class="template-btn" onclick="sendSMS('기타 생활 불편 사항 개선 및 조속한 답변 요청')">
+                <span class="template-tag">템플릿 C</span>
+                기타 생활 불편 사항
+            </div>
+            <!-- 템플릿 계속 추가 가능 -->
         </div>
     </div>
 
@@ -204,13 +215,11 @@
 <script>
     function sendSMS(message) {
         const phoneNumber = '01059200184';
-        // iOS와 안드로이드 모두 호환되는 SMS 스키마
         const smsUrl = `sms:${phoneNumber}${getSMSDivider()}body=${encodeURIComponent(message)}`;
         window.location.href = smsUrl;
     }
 
     function getSMSDivider() {
-        // iOS와 안드로이드 구분
         return (navigator.userAgent.match(/iPhone|iPad|iPod/i) ? '&' : '?');
     }
 </script>
