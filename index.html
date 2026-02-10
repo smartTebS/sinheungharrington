@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>해링턴스퀘어 신흥역 민원문자 전송 도구</title>
+    <style>
+        /* 1번 사이트 스타일 재현 */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        header p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        /* 카드 스타일 */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+        }
+
+        .card-title span {
+            margin-right: 8px;
+        }
+
+        /* 입력 및 선택 영역 */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .phone-display {
+            background: #e9ecef;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            border: 1px solid #dee2e6;
+        }
+
+        /* 템플릿 버튼 스타일 */
+        .template-btn {
+            width: 100%;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            text-align: left;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .template-btn:hover {
+            border-color: var(--accent-color);
+            background: #f0f7ff;
+        }
+
+        .template-btn:active {
+            transform: scale(0.98);
+        }
+
+        .template-tag {
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        /* 전송 안내 */
+        .info-text {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* 모바일 대응 가이드 이미지 (Hits 카운터 대체용) */
+        .hits {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>📨 성남시 민원문자 전송</h1>
+        <p>중앙동-성남시 민원 해결을 위한 문자 발송 도구</p>
+        <!--<p>해링턴 스퀘어 신흥역</p>		-->
+    </header>
+
+    <div class="card">
+        <div class="card-title"><span>📱</span> 수신 번호</div>
+        <div class="phone-display">010-5920-0184</div>
+        <p class="info-text">※ 아래 문구를 <strong>더블 클릭(탭)</strong>하면 전송 화면으로 연결됩니다.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-title"><span>📝</span> 민원 내용 선택</div>
+        
+        <div class="template-btn" onclick="sendSMS('성남시 중앙동 재개발 관련하여 주민들의 의견을 수렴해 주시고, 신속한 행정 처리를 요청드립니다.')">
+            <span class="template-tag">템플릿 A</span>
+            성호시장 4거리는 중고등학생 및 인근아파트 주민들의 보행과 차량통행이 많은 곳입니다. 
+			신호위반 과속 차량으로인해 주민들이 사거리 이용시 놀라는 경우가 생기고 있습니다.
+			광명로 성호시장 방면에서 하늘채 1단지 방향으로 후방 과속 카메라를 설치해주시면 
+			횡단보도 주변 사고 위험도 줄이고 야간의 오토바이 소음도 줄일수 있을것 입니다.
+			성호시장 4거리에 신호위반 과속 방지 후방 카메라 설치 바랍니다.
+        </div>
+
+        <div class="template-btn" onclick="sendSMS('중앙동 인근 공사 현장의 소음 및 먼지 문제가 심각합니다. 철저한 현장 지도 점검을 부탁드립니다.')">
+            <span class="template-tag">템플릿 B</span>
+            공사 현장 소음 및 비산먼지 저감 대책 마련 요청
+        </div>
+
+        <div class="template-btn" onclick="sendSMS('성남시 중앙동 생활 불편 사항 개선을 위한 민원을 제기하오니 조속히 답변 부탁드립니다.')">
+            <span class="template-tag">템플릿 C</span>
+            기타 생활 불편 사항 개선 및 조속한 답변 요청
+        </div>
+    </div>
+
+    <div class="hits">
+        <img src="https://hits.sh/one-central.github.io/hss.svg?label=access" alt="Hits">
+    </div>
+
+    <footer>
+        © 중앙동 민원 전송 도구 · 해링턴스퀘어 신흥역
+    </footer>
+</div>
+
+<script>
+    function sendSMS(message) {
+        const phoneNumber = '01059200184';
+        // iOS와 안드로이드 모두 호환되는 SMS 스키마
+        const smsUrl = `sms:${phoneNumber}${getSMSDivider()}body=${encodeURIComponent(message)}`;
+        window.location.href = smsUrl;
+    }
+
+    function getSMSDivider() {
+        // iOS와 안드로이드 구분
+        return (navigator.userAgent.match(/iPhone|iPad|iPod/i) ? '&' : '?');
+    }
+</script>
+
+</body>
+</html>
