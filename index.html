@@ -190,14 +190,14 @@
     <div class="card">
         <div class="card-title"><span>📱</span> 수신처 선택</div>
         <div class="receiver-selector">
-            <div class="receiver-option active" onclick="selectReceiver(this, '0317296102')">
+            <div class="receiver-option active" onclick="selectReceiver(this, '01059200184')">
+                <span class="label">성남시 민원</span>
+                <span class="phone-num">010-5920-0184</span>
+            </div>		
+            <div class="receiver-option" onclick="selectReceiver(this, '0317296102')">
                 <span class="label">성남시 중원구 시민봉사과</span>
                 <span class="phone-num">031-729-6102</span>
             </div>		
-            <div class="receiver-option" onclick="selectReceiver(this, '01059200184')">
-                <span class="label">성남시 민원</span>
-                <span class="phone-num">010-5920-0184</span>
-            </div>
         </div>
         <p class="info-text">※ 발송할 대상을 선택한 후 아래 문구를 <strong>탭</strong>하세요.</p>
     </div>
@@ -234,7 +234,7 @@
 
 <script>
 // 전역 변수로 현재 선택된 수신번호 저장 (기본값 설정)
-let selectedPhone = '0317296102';
+let selectedPhone = '01059200184';
 
 const templates = {
     underground: `[신흥역 노상주차장 철거 주민 민원]
